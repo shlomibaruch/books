@@ -1,0 +1,26 @@
+.navbar-container {
+  background-color: red;
+  color: white;
+  position: sticky;
+  display: flex;
+  min-height: 60px;
+  align-items: center;
+  
+}
+.ul-list { 
+  list-style: none;
+  display: flex;
+
+  /* float: left; */
+}
+.ul-list> li {
+  margin-left: 15px;
+}
+.ul-list > li>:hover { 
+  color: black;
+}
+.nav-link { 
+  color: white;
+  text-decoration: none;
+
+}

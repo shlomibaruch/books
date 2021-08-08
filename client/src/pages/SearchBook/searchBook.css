@@ -1,0 +1,30 @@
+.search-contaitner { 
+    background-color: gray;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.search-input-contaitner {
+    /* border: 3px solid black; */
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-icon { 
+    margin-left: 5px;
+    padding: 5px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+.search-input {
+    padding: 10px;
+    width: 350px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: large;
+}
