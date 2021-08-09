@@ -2,6 +2,8 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { SearchBook } from './pages/SearchBook';
+import {Collections} from './pages/Collections'
+
 function App() {
   return (
     <main className="App">
@@ -9,15 +11,15 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/search-book"
-          render={(props) => (<SearchBook data-hook="collections-link" {...props} />)}
+          path="/"
+          render={(props) => (<SearchBook {...props} />)}
         />
-        {/* <Route
+        <Route
           exact
           path="/collections"
           render={(props) => (<Collections data-hook="collections-link" {...props} />)}
         />
-        <Route
+        {/* <Route
           exact
           path="/collections"
           render={(props) => (<Collections data-hook="collections-link" {...props} />)}

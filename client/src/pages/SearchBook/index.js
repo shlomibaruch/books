@@ -8,37 +8,37 @@ export const SearchBook = () => {
     const [bookList, setBookList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
+
     const onChange = (e) => {
         setSerachInputValue(e.target.value);
     };
     const click = async (e) => {
         e.preventDefault()
-        console.log(serachInputValue);
-        const res = await searchBooks(serachInputValue);
-        setBookList(res.docs)
+        setIsLoading(true)
+        await getBooks(serachInputValue);
     }
 
     const getBooks = async (searchValue) => {
         const res = await searchBooks(searchValue);
-        // if (res?.docs?.length > 0) {
-        //   const books = res.docs;
-        //   setIsLoading(false);
-        //   setBooksList(books);
-        //   save('books', books);
-        // } else {
-        //   setIsFetching(false);
-        //   setBooksList([]);
-        //   setResultNotFound('No Books Found');
-        // }
+        if (res?.docs?.length > 0) {
+            const books = res.docs;
+            setIsLoading(false);
+            setBookList(books);
+            //   save('books', books);
+        } else {
+            setIsLoading(false);
+            setBookList([]);
+            //   setResultNotFound('No Books Found');
+        }
         // setFilterMode(false);
     };
 
-    const handaleKeyDown = (e) => {
-        if (e.keyCode === 13 || e.type === 'click') {
-            setIsLoading(true);
+    // const handaleKeyDown = (e) => {
+    //     if (e.keyCode === 13 || e.type === 'click') {
+    //         setIsLoading(true);
 
-        }
-    };
+    //     }
+    // };
     return (
         <section>
 
@@ -51,7 +51,13 @@ export const SearchBook = () => {
 
             </div>
 
-            <BookList books={bookList} />
+            {
+                !isLoading ? (
+
+                    <BookList books={bookList} />
+
+                ) : ("loading ...")
+            }
         </section>
     )
 }
