@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BookItem } from './BookItem';
 import './books.css'
 export const BookList = ({ books = [] }) => {
+    const [collection, setCollection] = useState([]);
+    
     return (
         <div data-hook="all-books" className="book-list-container">
             {
@@ -10,9 +12,9 @@ export const BookList = ({ books = [] }) => {
                         <BookItem 
                         key={index}
                         dataHook={`book-${index}`}
-                        index={index}
                         book={book}
                         books={books}
+                        bookKey={book.key}
                         />
                     ))
                     :

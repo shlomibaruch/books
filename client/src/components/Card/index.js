@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './card.css';
-export const BookCard = ({ title, img, year, dataHook }) => {
+
+export const BookCard = ({ title, img, year, dataHook, bookKey }) => {
+
     return (
         <div className="card-container" data-hook={dataHook} >
             <div className="img-container">
@@ -15,7 +17,7 @@ export const BookCard = ({ title, img, year, dataHook }) => {
                 </div>
                 <div className="btn">
                     <button>
-                            View More
+                        View More
                     </button>
                 </div>
             </div>

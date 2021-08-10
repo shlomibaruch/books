@@ -1,0 +1,41 @@
+.add-collection-input { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.add-collection-input > input { 
+    padding: 10px;
+    width: 200px;
+
+}
+.add-icon { 
+    padding: 11px;
+    background-color: red;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.collections-list-container { 
+    /* background-color: lawngreen; */
+    
+    padding: 3px;
+    border: 1px solid black;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 10px;
+}
+.collection-item-container {
+    display: flex;
+    justify-content: space-between;
+}
+.collection-item-icon > svg{
+margin: 3px;
+}
+.collection-item-edit { 
+    display: flex;
+    align-items: center;
+    
+}
+.collection-item-edit > input {
+    margin-right: 10px;
+}
