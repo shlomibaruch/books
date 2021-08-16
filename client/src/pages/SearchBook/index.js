@@ -43,7 +43,6 @@ export const SearchBook = () => {
         <section>
 
             <div className="search-contaitner">
-
                 <div className="search-input-contaitner">
                     <input type="text" className="search-input" onChange={onChange} />
                     <GrSearch className="search-icon" onClick={click} />

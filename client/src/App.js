@@ -9,9 +9,14 @@ function App() {
     <main className="App">
       <Header />
       <Switch>
+      <Route
+          exact
+          path="/"
+          render={(props) => (<SearchBook {...props} />)}
+        />
         <Route
           exact
-          path="/books"
+          path="/search-books"
           render={(props) => (<SearchBook {...props} />)}
         />
         <Route
