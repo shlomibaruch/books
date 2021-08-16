@@ -15,14 +15,11 @@
     margin-left: 10px;
     cursor: pointer;
 }
-.collections-list-container { 
-    /* background-color: lawngreen; */
-    
+.collections-list-container {     
     padding: 3px;
     border: 1px solid black;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+
 }
 .collection-item-container {
     display: flex;
@@ -38,4 +35,38 @@ margin: 3px;
 }
 .collection-item-edit > input {
     margin-right: 10px;
+}
+.f1-collection-container { 
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 10px;
+}
+.collections-display-data-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.collections-display-data-container > svg {
+    font-size: 20px;
+    margin: 3px;
+}
+#collection-display-grid-icon  { 
+    font-size: 22px;
+}
+.collection-books-data{
+    height: 35px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.collection-book-data-container{
+  display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;  
+margin-bottom: 5px;
+
+}
+.collection-book-data-container:hover {
+    background: rgba(128, 128, 128, 0.309);
 }
