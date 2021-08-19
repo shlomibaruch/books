@@ -1,11 +1,10 @@
-.books-item-container { 
-width: 200px;
 
-}
 .book-list-container {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-content: center;
     justify-content: center;
-
+    flex-wrap: wrap;
+   color: blanchedalmond;
+   overflow: hidden;
+   transition: transform 500ms ease;
 }

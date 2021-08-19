@@ -10,15 +10,12 @@ export const AddToast = (toastType, toastMessage, toastPosition = 'top-right') =
         pauseOnHover: true,
         draggable: true
     };
-
     const successMessage = () =>{
         toast.success(`${toastMessage}`, options);
     };
-
     const errorMessage = () =>{
         toast.error(`${toastMessage}`, options)
     };
-
     return (
         <>
             {toastType ? successMessage() : errorMessage()}

@@ -12,7 +12,6 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
     const [bookKey, setBookKey] = useState('')
 
     const deleteCollection = (id) => {
-        console.log(id);
         const collectionsAfterFilter = collections.filter((c) => c.id !== id);
         setCollections(collectionsAfterFilter);
     };
@@ -42,26 +41,22 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
             return AddToast(false, 'Create Collection First ');
 
         const collectionToAdd = collections.find((c) => c.id === selectedValue);
-
         const isBookAlreadyInCollection = collectionToAdd.books.some(
             (b) => b.key === bookKey,
         );
-        console.log('collectionToAdd', collectionToAdd);
-        console.log('isBookAlreadyInCollection', isBookAlreadyInCollection);
+        
         if (isBookAlreadyInCollection)
             return AddToast(false, 'Book Already Exist In Collection ');
 
         const cuurentBookToMove = collection.books.find((b) => b.key === bookKey);
         if (!cuurentBookToMove) return AddToast(false, 'Book Not Found :(');
-
+        
         const books = collection.books.filter((b) => b.key !== bookKey);
         collectionToAdd.books.push(cuurentBookToMove);
-
         const updateCollection = {
             ...editedCollection,
             books,
         };
-
         const newCollections = collections.map((c) => {
             if (c.id === collection.id) return updateCollection;
             return c;
@@ -76,18 +71,15 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
             [e.target.name]: e.target.value,
         });
     };
-
     const deleteBookFromCollection = (bookKey) => {
         const books = collection.books.filter((b) => b.key !== bookKey);
         const newEditedCollection = {
             ...editedCollection,
             books,
         };
-
         const newCollections = collections.map((c) =>
             c.id === collection.id ? newEditedCollection : c,
         );
-        console.log(newCollections);
         setEditedCollection(newEditedCollection);
         setCollections(newCollections);
     };
@@ -95,7 +87,6 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
     return (
         <div className="collections-list-container">
             <div className="collection-item-container">
-
                 {!isEditMode ? <span style={{ fontWeight: 'bold' }}>{collection.name}</span> :
                     <div className="collection-item-edit">
                         <input
@@ -107,14 +98,12 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
                         <FaRegCheckSquare style={{ cursor: "pointer" }} onClick={() => updateCollection()} />
                     </div>
                 }
-
                 <div className="collection-item-icon">
                     <FaEdit
                         style={{ cursor: "pointer" }}
                         data-hook="edit-icon"
                         onClick={() => { setIsEditMode(!isEditMode) }}
                     />
-
                     <AiFillDelete
                         style={{ cursor: "pointer" }}
                         data-hook="delete-icon"
@@ -124,12 +113,8 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
                         <FaChevronDown onClick={() => setShowCollectionData(!showCollectionData)} style={{ cursor: "pointer" }} />
                         :
                         <FaChevronUp onClick={() => setShowCollectionData(!showCollectionData)} style={{ cursor: "pointer" }} />
-
                     }
-
                 </div>
-
-
             </div>
             {showCollectionData ?
                 <div>
@@ -139,10 +124,8 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
                         !ischangeMode ?
                             <>
                                 {collection.books?.map((book, index) => (
-
                                     <div key={index} className="collection-book-data-container">
                                         <CoverImg olid={book.cover_edition_key} />
-
                                         <option
                                             onChange={moveBooksFromCollection}
                                             className="collection-books-data"
@@ -156,18 +139,16 @@ export const CollectionsItems = ({ collections, collection, setCollections }) =>
                                                 setIsChangeMode(!ischangeMode)
                                                 setBookKey(book.key)
                                             }}
-
                                         />
-                                        <AiFillDelete 
-                                        style={{ cursor: "pointer" }}
-                                        data-hook="delete-icon"
-                                        onClick={() => deleteBookFromCollection(book.key)}
+                                        <AiFillDelete
+                                            style={{ cursor: "pointer" }}
+                                            data-hook="delete-icon"
+                                            onClick={() => deleteBookFromCollection(book.key)}
                                         />
-
                                     </div>
                                 ))}
-
-                            </> :
+                            </>
+                            :
                             <select onChange={(e) => moveBooksFromCollection(e, bookKey)}  >
                                 <option value={'select collection'}>select collection</option>
                                 {collections.map((coll, idx) => (

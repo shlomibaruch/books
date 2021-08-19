@@ -42,8 +42,8 @@ export const Collections = () => {
                             isListMode={displayCollections}
                         />
                     ))}
-                </div> :
-
+                </div> 
+                :
                 <CollectionsGridItems />
             }
         </div>

@@ -3,11 +3,11 @@ import './searchBook.css';
 import { GrSearch } from 'react-icons/gr';
 import { searchBooks } from '../../booksAPI/index'
 import { BookList } from '../../components/BookList/BookList';
+import { Spinner } from '../../components/Spinner';
 export const SearchBook = () => {
     const [serachInputValue, setSerachInputValue] = useState('');
     const [bookList, setBookList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
 
     const onChange = (e) => {
         setSerachInputValue(e.target.value);
@@ -24,21 +24,12 @@ export const SearchBook = () => {
             const books = res.docs;
             setIsLoading(false);
             setBookList(books);
-            //   save('books', books);
         } else {
             setIsLoading(false);
             setBookList([]);
-            //   setResultNotFound('No Books Found');
         }
-        // setFilterMode(false);
     };
 
-    // const handaleKeyDown = (e) => {
-    //     if (e.keyCode === 13 || e.type === 'click') {
-    //         setIsLoading(true);
-
-    //     }
-    // };
     return (
         <section>
 
@@ -55,7 +46,7 @@ export const SearchBook = () => {
 
                     <BookList books={bookList} />
 
-                ) : ("loading ...")
+                ) : (<div className="serach-book-loading"><Spinner color="red"/></div>)
             }
         </section>
     )

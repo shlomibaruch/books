@@ -31,7 +31,7 @@ export const BookList = ({ books = [] }) => {
                             />
                         ))
                         :
-                        "no results"
+                        null
                 }
         </div>
     )

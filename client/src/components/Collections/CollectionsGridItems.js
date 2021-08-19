@@ -3,7 +3,7 @@ import React from 'react'
 export const CollectionsGridItems = () => {
     return (
         <div>
-            Grid
+            Grid In Progress
         </div>
     )
 }

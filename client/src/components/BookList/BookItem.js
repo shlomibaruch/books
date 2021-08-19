@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { getBookCoverByOLID } from '../../booksAPI';
 import { setItem } from '../../localstorage/localstorage';
-import { BookCard } from '../Card';
+import { BooksCard } from '../Card/BooksCard';
 import { AddToast } from '../Toast';
 import './books.css'
 
@@ -29,7 +29,6 @@ export const BookItem = ({ book, books, bookKey, dataHook, collections }) => {
 
         collectionToAdd.books.push(bookToAdd);
         setItem('collections', collections);
-        // showSelectList(false);
         AddToast(
             true,
             `the book added successfuly to ${collectionToAdd.name} collection`,
@@ -38,7 +37,7 @@ export const BookItem = ({ book, books, bookKey, dataHook, collections }) => {
 
     return (
         <div className="books-item-container">
-            {books.length > 0 ? <BookCard
+            {books.length > 0 ? <BooksCard
                 title={book.title}
                 img={img} year={book.first_publish_year}
                 dataHook={dataHook}

@@ -10,7 +10,6 @@ export const AddCollections = ({ setCollections, collections }) => {
     };
 
     const addCollection = () => {
-
         const isCollectionExist = collections.some(
             (collection) => collection.name === collectionInput,
         );
@@ -38,7 +37,6 @@ export const AddCollections = ({ setCollections, collections }) => {
                     onChange={handleOnChange}
                     data-hook="add-collection-input"
                 />
-
                 <GrFormAdd
                     className="add-icon"
                     onClick={() => addCollection()}
